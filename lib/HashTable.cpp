@@ -88,6 +88,11 @@ Data HashTable::get_data_node(int key) {
     if(node_ptr != NULL) {
         data = node_ptr->data;
     }
+    else {
+    	std::cout <<
+    			     "Unable to get node data. No node with matching key found"
+    			  << std::endl;
+    }
 
     return data;
 }
@@ -213,7 +218,11 @@ void HashTable::delete_node(int key) {
         else{}
     }
     /* Case: No node with matching key found */
-    else {std::cout << "Unable to delete node. No node with matching key found" << std::endl;}
+    else {
+    	std::cout <<
+    			     "Unable to delete node. No node with matching key found"
+    			  << std::endl;
+    }
 }
 
 void HashTable::delete_table() {
