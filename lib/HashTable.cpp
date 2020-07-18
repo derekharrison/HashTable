@@ -79,6 +79,11 @@ void HashTable::print_data_node(int key) {
     if(node_ptr != NULL) {
         std::cout << node_ptr->data.number << std::endl;
     }
+    else {
+        std::cout <<
+                     "Unable to print node data. No node with matching key found"
+                  << std::endl;
+    }
 }
 
 Data HashTable::get_data_node(int key) {
