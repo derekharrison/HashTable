@@ -24,7 +24,7 @@ int main(int argc, char* argv[])
         htable.insert_node(node);
     }
 
-    /* Printing and getting data */
+    /* Printing, getting and deleting data */
     int key = 9;
     htable.print_data_table();
     Data data = htable.get_data_node(key);
