@@ -29,7 +29,7 @@ private:
 
     int hash_fcn(int k);
     Node* get_node_ptr(int key);
-    bool check_key_taken(int key, int index_ht);
+    bool check_key_taken(int key);
 public:
     HashTable(int length_table);
     ~HashTable();

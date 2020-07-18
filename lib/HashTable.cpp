@@ -107,31 +107,37 @@ Data HashTable::get_data_node(int key) {
     return data;
 }
 
-bool HashTable::check_key_taken(int key, int index_ht) {
+bool HashTable::check_key_taken(int key) {
     bool key_taken = false;
+    int index_ht = HashTable::hash_fcn(key);
     Node* node_ptr = this->T[index_ht];
-    /* Case: Only one element in list */
-    if(node_ptr->next == NULL && node_ptr->prev == NULL) {
-        if(node_ptr->key == key) {
-            return key_taken = true;
+    /* Case: Slot not empty */
+    if(node_ptr != NULL) {
+        /* Case: Only one element in list */
+        if(node_ptr->next == NULL && node_ptr->prev == NULL) {
+            if(node_ptr->key == key) {
+                return key_taken = true;
+            }
+        }
+        /* Case: Check all keys but last, for lists greater than 1 */
+        Node* dummy = this->T[index_ht];
+        while(dummy->next != NULL) {
+            if(dummy->key == key) {
+                return key_taken = true;
+            }
+            else {
+                dummy = dummy->next;
+            }
+        }
+        /* Case: Check last key, for lists greater than 1 */
+        if(dummy->next == NULL && dummy->prev != NULL) {
+            if(dummy->key == key) {
+                return key_taken = true;
+            }
         }
     }
-    /* Case: Check all keys but last, for lists greater than 1 */
-    Node* dummy = this->T[index_ht];
-    while(dummy->next != NULL) {
-        if(dummy->key == key) {
-            return key_taken = true;
-        }
-        else {
-            dummy = dummy->next;
-        }
-    }
-    /* Case: Check last key, for lists greater than 1 */
-    if(dummy->next == NULL && dummy->prev != NULL) {
-        if(dummy->key == key) {
-            return key_taken = true;
-        }
-    }
+    /* Case: Slot empty */
+    else {}
 
     return key_taken;
 }
@@ -147,7 +153,7 @@ void HashTable::insert_node(Node node) {
     }
     /* Case: Slot not empty */
     else {
-        bool key_taken = HashTable::check_key_taken(node.key, index_ht);
+        bool key_taken = HashTable::check_key_taken(node.key);
         if(key_taken == false) {
             Node* dummy = this->T[index_ht];
             this->T[index_ht] = new Node;
