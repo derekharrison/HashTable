@@ -174,7 +174,7 @@ Node* HashTable::get_node_ptr(int key) {
         }
     }
     /* Case: Slot is empty */
-    else {std::cout << "slot is empty" << std::endl;}
+    else {std::cout << "Slot is empty" << std::endl;}
 
     return NULL;
 }
@@ -213,7 +213,7 @@ void HashTable::delete_node(int key) {
         else{}
     }
     /* Case: No node with matching key found */
-    else {std::cout << "No node with matching key found" << std::endl;}
+    else {std::cout << "Unable to delete node. No node with matching key found" << std::endl;}
 }
 
 void HashTable::delete_table() {
