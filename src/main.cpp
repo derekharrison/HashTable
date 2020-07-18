@@ -24,8 +24,10 @@ int main(int argc, char* argv[])
         htable.insert_node(node);
     }
 
+    /* Printing and getting data */
+    int key = 9;
     htable.print_data_table();
-    Data data = htable.get_data_node(98);
+    Data data = htable.get_data_node(key);
     std::cout << "data node: " << data.number << std::endl;
     std::cout << "size table: " << htable.get_size_table() << std::endl;
     htable.print_keys_table();
