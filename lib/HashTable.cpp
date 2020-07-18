@@ -120,7 +120,7 @@ bool HashTable::check_key_taken(int key) {
             }
         }
         /* Case: Check all keys but last, for lists greater than 1 */
-        Node* dummy = this->T[index_ht];
+        Node* dummy = node_ptr;
         while(dummy->next != NULL) {
             if(dummy->key == key) {
                 return key_taken = true;
