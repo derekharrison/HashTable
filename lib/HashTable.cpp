@@ -76,9 +76,12 @@ void HashTable::print_data_table() {
 
 void HashTable::print_data_node(int key) {
     Node* node_ptr = HashTable::get_node_ptr(key);
+
+    /* Case: Node with matching key found */
     if(node_ptr != NULL) {
         std::cout << node_ptr->data.number << std::endl;
     }
+    /* Case: No node with matching key found */
     else {
         std::cout <<
                      "Unable to print node data. No node with matching key found"
@@ -90,9 +93,11 @@ Data HashTable::get_data_node(int key) {
     Node* node_ptr = HashTable::get_node_ptr(key);
     Data data = {0};
 
+    /* Case: Node with matching key found */
     if(node_ptr != NULL) {
         data = node_ptr->data;
     }
+    /* Case: No node with matching key found */
     else {
         std::cout <<
                      "Unable to get node data. No node with matching key found"
