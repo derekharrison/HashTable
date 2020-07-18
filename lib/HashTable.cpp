@@ -74,8 +74,8 @@ void HashTable::print_data_table() {
     }
 }
 
-void HashTable::print_data_node(Node node) {
-    Node* node_ptr = HashTable::get_node_ptr(node.key);
+void HashTable::print_data_node(int key) {
+    Node* node_ptr = HashTable::get_node_ptr(key);
     if(node_ptr != NULL) {
         std::cout << node_ptr->data.number << std::endl;
     }

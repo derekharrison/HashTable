@@ -11,11 +11,11 @@
 
 int main(int argc, char* argv[])
 {
-    int length_table = 100;
+    int length_table = 10;
     HashTable htable(length_table);
 
     /* Inserting random data in hash table. Note: hash table only admits unique keys */
-    int size_table = 150;
+    int size_table = 15;
     srand(time(NULL));
     for(int i = 0; i < size_table; ++i) {
         int key = rand() % size_table;

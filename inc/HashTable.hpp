@@ -35,7 +35,7 @@ public:
     ~HashTable();
     void print_keys_table();
     void print_data_table();
-    void print_data_node(Node node);
+    void print_data_node(int key);
     Data get_data_node(int key);
     void insert_node(Node node);
     void delete_node(int key);
