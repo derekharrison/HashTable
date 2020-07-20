@@ -110,6 +110,7 @@ Data HashTable::get_data_node(int key) {
 bool HashTable::check_key_taken(int key) {
     bool key_taken = false;
     Node* node_ptr = HashTable::get_node_ptr(key);
+
     /* Case: Node with matching key found */
     if(node_ptr != NULL) {
         key_taken = true;
