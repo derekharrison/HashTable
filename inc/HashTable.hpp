@@ -17,8 +17,8 @@ class Node {
 public:
     int key;
     Data data;
-    Node* prev = NULL;
-    Node* next = NULL;
+    Node* prev;
+    Node* next;
 };
 
 class HashTable {
