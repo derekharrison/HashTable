@@ -149,6 +149,8 @@ void HashTable::insert_node(Node node) {
         this->T[index_ht] = new Node;
         this->T[index_ht]->key = node.key;
         this->T[index_ht]->data = node.data;
+        this->T[index_ht]->next = NULL;
+        this->T[index_ht]->prev = NULL;
         this->size_table++;
     }
     /* Case: Slot not empty */
@@ -160,6 +162,7 @@ void HashTable::insert_node(Node node) {
             this->T[index_ht]->key = node.key;
             this->T[index_ht]->data = node.data;
             this->T[index_ht]->next = dummy;
+            this->T[index_ht]->prev = NULL;
             dummy->prev = this->T[index_ht];
             this->size_table++;
         }
