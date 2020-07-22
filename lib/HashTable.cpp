@@ -23,7 +23,7 @@ HashTable::HashTable(int length_table) {
 }
 
 HashTable::~HashTable() {
-	HashTable::delete_table();
+    HashTable::delete_table();
     delete [] this->T;
 }
 
